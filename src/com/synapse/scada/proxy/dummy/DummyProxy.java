@@ -23,6 +23,12 @@ import com.synapse.scada.config.SubArea;
 import com.synapse.scada.core.SynapseException;
 import com.synapse.scada.core.proxy.Proxy;
 
+/**
+ * The Class DummyProxy.
+ *
+ * @author Tomek Kozlowski (rysiekblah)
+ * @version 1.00 (Nov 22, 2012)
+ */
 public class DummyProxy implements Proxy {
 
 	/** The log. */
@@ -45,6 +51,8 @@ public class DummyProxy implements Proxy {
 	/**
 	 * This method shall implements connection establishment to dedicated
 	 * device.
+	 *
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public void connect() throws SynapseException {
@@ -53,6 +61,8 @@ public class DummyProxy implements Proxy {
 
 	/**
 	 * This method shall implements connection dropping with dedicated device.
+	 *
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public void disconnect() throws SynapseException {
@@ -63,7 +73,10 @@ public class DummyProxy implements Proxy {
 	/**
 	 * This method sends request to managed device to check state of unit with
 	 * given id.
-	 * 
+	 *
+	 * @param arg0 the arg0
+	 * @return the state
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public int getState(int arg0) throws SynapseException {
@@ -79,6 +92,10 @@ public class DummyProxy implements Proxy {
 	 * binary state (like switches) and with value (like temperature meter),
 	 * proxy provides this method if the requesting mechanism looks different as
 	 * it is in getState method.
+	 *
+	 * @param arg0 the arg0
+	 * @return the value
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public int getValue(int arg0) throws SynapseException {
@@ -90,6 +107,9 @@ public class DummyProxy implements Proxy {
 	/**
 	 * Initialization of the proxy i.e. create sockets, establish rs-232 port
 	 * and so on.
+	 *
+	 * @param arg0 the arg0
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public void initialize(SubArea arg0) throws SynapseException {
@@ -99,6 +119,8 @@ public class DummyProxy implements Proxy {
 
 	/**
 	 * Returns connection status.
+	 *
+	 * @return true, if is connected
 	 */
 	@Override
 	public boolean isConnected() {
@@ -109,6 +131,10 @@ public class DummyProxy implements Proxy {
 	/**
 	 * This method sends request to managed device to set state with given value
 	 * of unit with given id.
+	 *
+	 * @param arg0 the arg0
+	 * @param arg1 the arg1
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public void setState(int arg0, int arg1) throws SynapseException {
@@ -121,6 +147,10 @@ public class DummyProxy implements Proxy {
 	 * i.e. with binary state (like switches) and with value (like temperature
 	 * meter), proxy provides this method if the requesting mechanism looks
 	 * different as it is in setState method.
+	 *
+	 * @param arg0 the arg0
+	 * @param arg1 the arg1
+	 * @throws SynapseException the synapse exception
 	 */
 	@Override
 	public void setValue(int arg0, int arg1) throws SynapseException {
